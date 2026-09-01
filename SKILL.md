@@ -35,7 +35,7 @@ Never ask an image model to generate the complete poster. Generate only the lowe
 
 ### 1. Lock the visual system
 
-Read all of `REFERENCE.md` and convert every numeric range, hierarchy rule, color restriction, typography limit, and failure test into hard generation and QC constraints. Do not compress it into generic words such as retro, vintage, editorial, Riso, or mid-century.
+Read all of `REFERENCE.md`. Use it as the authoritative interpretation and QC specification; it is not a prompt that should be copied mechanically into the image model. Keep its numeric ranges, hierarchy rules, color restrictions, typography limits, and failure tests available for validation. Do not reduce the intended system to generic words such as retro, vintage, editorial, Riso, or mid-century.
 
 If the JPG is visually accessible, compare it against the specification for validation only. Never infer unseen details from its filename.
 
@@ -57,7 +57,17 @@ Never invent a city, building, designer, architect, brand, product model, date, 
 
 Use the source lock for WHAT and `REFERENCE.md` for HOW. Preserve architecture, viewpoint, major object count and identity, positions, occlusions, and scene order. Small clutter may be grouped, but must not become new decor.
 
-The prompt must include the measurable constraints and explicit failure patterns from `REFERENCE.md`, not merely its aesthetic summary.
+Use the concise generation instruction in section 11 of `REFERENCE.md`, supplemented only with source-specific facts from the source lock and, when necessary, one or two constraints addressing an observed failure. Do not paste every numeric target, QC test, or negative condition into the generation prompt. Detailed measurements and failure patterns belong to post-generation QC.
+
+Before calling an image model, verify this generation gate internally:
+
+- the requested output is the lower artwork only, never the complete poster;
+- it reconstructs the uploaded scene from the same viewpoint;
+- architecture, hero furniture, major object count, placement and depth order are locked;
+- the medium is warm paper, brown-black hand-print linework and exactly one muted source-derived spot color;
+- the drawing retains intentional paper exposure and contains no headline.
+
+If any gate item is missing, repair the prompt before generation.
 
 ### 4. Composite
 
@@ -65,7 +75,7 @@ Create a 3:4 canvas. Crop the original source proportionally into the top half w
 
 ### 5. Reject or deliver
 
-Reject and rebuild if any hard failure in `REFERENCE.md` occurs. In particular, reject:
+Evaluate the generated lower panel against the complete `REFERENCE.md`. Reject and rebuild if any hard failure occurs. In particular, reject:
 
 - any AI-generated or altered top panel;
 - a cover-style headline, brand title, or `Daily Interior`-type display text;
