@@ -1,337 +1,122 @@
-# Interior-Archive-Print — REFERENCE.md
+# Interior Archive Print — Canonical Visual Specification
 
-This file is the mandatory TEXTUAL FALLBACK for `reference/layout-reference.jpg`.
+This file is the authoritative machine-readable design system. Execute it completely whether or not `reference/layout-reference.jpg` is visually accessible. The JPG is optional human validation, never a dependency and never a substitute for this file.
 
-If the runtime can visually inspect the JPG, use BOTH the JPG and this file.
-If the runtime cannot visually inspect the JPG, this file becomes the authoritative style specification.
+## 1. Poster geometry
 
-The user source photo always controls WHAT is depicted. This reference controls HOW the lower archival panel is depicted.
+- Canvas ratio: exactly 3:4 vertical.
+- Split: 50% photograph / 50% archival artwork; tolerance no greater than 2%.
+- Boundary: one straight, crisp horizontal edge with no blending or crossing elements.
+- Top panel: original uploaded pixels; proportional crop only.
+- Bottom panel: same scene and camera direction, translated into the system below.
 
----
+## 2. Lower-panel layout system
 
-## 1. Overall design character
+Treat the lower half as a quiet archival publication page, not a cover.
 
-Target a premium 1970s–1980s interior-design archive / architecture journal / independent furniture catalogue / museum-shop publication aesthetic.
+- Outer safe margin: approximately 6–8% of lower-panel width on left and right; 5–8% of its height on top and bottom.
+- Illustrated/printed information: approximately 65–80% of the lower panel.
+- Exposed warm paper: approximately 20–35%, including at least one visibly calm outer margin and breathing room around metadata.
+- Main scene drawing: visually dominant, but never full bleed; generally occupy about 72–78% of the lower panel's usable area when the source composition permits.
+- Metadata: one compact cluster only, placed in a quiet margin or open paper zone; it must not compete with the scene.
+- Avoid mechanical centering. Preserve source perspective and let negative space balance the drawing.
 
-The result should feel:
+## 3. Content fidelity
 
-- restrained;
-- quiet;
-- editorial;
-- tactile;
-- observational;
-- carefully art-directed;
-- printed rather than digitally illustrated.
+The illustration is a translation, never a redesign. Preserve in order:
 
-It should NOT feel like:
-
-- a generic retro poster;
-- an advertising key visual;
-- a scrapbook;
-- a glossy CGI render;
-- a modern clean-vector infographic;
-- a distressed antique poster.
-
----
-
-## 2. Final poster geometry
-
-- Canvas: strict vertical 3:4.
-- Single poster only.
-- Upper and lower zones: approximately 1:1.
-- Divider: perfectly straight horizontal split.
-- No gradients, feathering, dissolves, collage overlaps, torn-paper effects, or elements crossing the split.
-
-### Upper zone
-
-- Use the ORIGINAL user-uploaded photograph pixels.
-- Only proportional crop is allowed.
-- Never regenerate, redraw, recolor for style, mirror, stretch, move furniture, or alter architecture.
-
-### Lower zone
-
-- Reconstruct the SAME scene from the SAME camera viewpoint.
-- Use the visual grammar defined below.
-- Keep enough paper/negative space that the panel reads as an archival printed page, not as a fully filled illustration.
-
----
-
-## 3. Lower-panel composition
-
-The lower artwork should occupy most, but not all, of the lower zone.
-
-Visual balance target:
-
-- illustration is dominant but not edge-to-edge;
-- leave controlled breathing room around the artwork;
-- preserve a quiet area for tiny archival metadata;
-- avoid centering everything mechanically;
-- avoid oversized titles;
-- maintain a calm editorial grid.
-
-The overall lower-panel density should feel approximately 65–80% illustrated/printed information and 20–35% paper/negative space, depending on the source scene.
-
-Negative space must remain intentional, especially around text and at one or more outer margins.
-
----
-
-## 4. Scene fidelity
-
-The lower panel is a translation, not a redesign.
-
-Preserve, in priority order:
-
-1. architecture;
-2. camera direction and approximate eye level;
+1. architecture and openings;
+2. camera direction, eye level and major perspective;
 3. major furniture count;
-4. hero furniture identity and silhouette;
-5. object placement;
-6. foreground / middle / background order;
-7. important occlusions;
-8. major plants, lamps, artwork, shelving, audio objects, and other scene anchors.
+4. hero furniture silhouette, proportions, legs/base/arms/back and cushion segmentation;
+5. object positions and orientation;
+6. foreground/middle/background order;
+7. important overlaps and occlusions;
+8. plants, lamps, artwork, shelving, audio objects and scene anchors.
 
-Do not make the room more luxurious, more minimal, more symmetrical, or more photogenic than the source.
+Do not make the room more luxurious, minimal, symmetrical, decorated, or photogenic. Do not invent windows, doors, shelves, platforms, walls, furniture, plants or props.
 
-Small clutter may be grouped graphically, but major anchor objects must remain recognizable.
+## 4. Drawing and abstraction
 
----
+Target the intersection of observational architectural drawing, hand-pulled printmaking and editorial interior illustration. The scene must be recognizable but not photorealistic.
 
-## 5. Illustration abstraction level
+- Primary contours: deep brown-black, hand-drawn, slightly irregular and varied in weight.
+- Use three line levels: strong structural/hero contours; medium object and plane construction; fine hatching and incidental detail.
+- Hatching: directional parallel lines describe form and shadow; cross-hatching only for the deepest values.
+- Do not hatch every surface. Open cream paper is an active light value.
+- Avoid CAD-perfect smoothness, polished vector uniformity and excessively precise technical rendering.
+- Simplify photographic detail into contour, hatch, selective ink mass, sparse halftone and paper exposure.
 
-Target a midpoint between:
+## 5. Value distribution
 
-- architectural observational drawing;
-- hand-pulled printmaking;
-- editorial interior illustration.
+Use only three value families:
 
-The image must remain clearly identifiable as the same source scene, but should not chase photographic realism.
+1. warm unprinted paper/light;
+2. line and hatch midtone;
+3. dense cross-hatch or selective deep-ink mass.
 
-Translate photographic detail into:
+Approximate visual balance within the printed lower artwork:
 
-- ink outlines;
-- engraved hatching;
-- cross-hatching;
-- flat spot-color masses;
-- sparse halftone;
-- unprinted cream paper.
+- 55–70% warm paper or lightly marked area;
+- 20–35% line/hatch midtone;
+- 8–15% deep ink mass.
 
-Avoid smooth digital gradients and realistic material rendering.
+Large dark regions must support source shadows or structural recesses; never blanket-fill the scene. No smooth tonal gradients.
 
----
+## 6. Color system
 
-## 6. Line language
+Use exactly three material/color roles:
 
-Primary linework:
+- warm ivory or cream uncoated paper;
+- deep brown-black ink, approximately 70% of printed marks;
+- exactly one muted spot color derived from a defining source-photo feature, approximately 10–25% of printed area and normally no more than 15% of the entire lower panel.
 
-- deep brown-black rather than sterile pure black;
-- visibly hand-drawn;
-- slightly irregular;
-- varied line weight;
-- confident architectural contour lines;
-- no perfect CAD/vector smoothness.
+Apply the spot color to one coherent family: hero object, one architectural plane, a plant mass, or another defining anchor. Do not sprinkle it decoratively. Use moss/olive, brick/oxblood, tobacco/burnt orange, muted slate/navy, or an equivalently desaturated source-derived hue. Never use vivid RGB saturation or a full-color palette.
 
-Hatching:
+## 7. Paper and print behavior
 
-- directional parallel hatching for form and shadow;
-- cross-hatching only where deeper value is needed;
-- do not hatch every surface;
-- preserve open paper areas;
-- line density should increase in deep shadows and structural recesses.
+- Matte warm ivory/cream, not bright white and not dirty yellow parchment.
+- Subtle fiber and grain; tactile but subordinate.
+- Mild uneven ink density, sparse dry-ink gaps and restrained screen-print/Risograph misregistration.
+- No folds, tears, stains, heavy scratches, dramatic aging or grunge overlays.
 
-Edges may show subtle broken-print character, but never heavy distressed grunge.
+## 8. Typography
 
----
+Typography is archival metadata, never headline design.
 
-## 7. Value structure
+- One compact information group; usually 1–3 short lines.
+- Monospaced, typewriter or technical-catalogue character.
+- Primary metadata line-height approximately 1/35–1/50 of total poster height; no text element may exceed 4% of lower-panel height.
+- Text occupies no more than roughly 8% of lower-panel area and remains less visually prominent than the illustration.
+- Simple alignment, ample surrounding paper, no decorative rotation or scattered labels.
+- Permitted neutral pattern: `No. 041` and a short observational/material line.
+- Add place, date, architect, designer, brand or model only when supplied or verifiably known. Never fabricate.
+- Language follows user context; Korean, Japanese, Chinese or English is never mandatory.
 
-Use a simplified three-level value logic:
+There is no display title. A magazine-cover headline, brand masthead, slogan, or prominent phrase is forbidden.
 
-1. warm paper / unprinted light area;
-2. line + hatch midtone;
-3. deep ink mass / dense cross-hatch dark area.
+## 9. Editorial character
 
-Do not recreate every photographic tonal variation.
+The finished lower panel should feel quiet, restrained, tactile, observational and carefully art-directed: an archival interior-study print or independent furniture-catalogue page. It must not feel like an advertising key visual, template, scrapbook, or cover.
 
-Large dark regions should be selective and compositional, not blanket black fills.
+## 10. Hard failure tests
 
-The lower image should still breathe.
+The result fails if any condition is true:
 
----
+- The top photograph has been regenerated, redrawn, recolored, mirrored, stretched or content-edited.
+- The split is not clean and approximately equal.
+- The lower illustration changes architecture, viewpoint, major furniture count, hero silhouette or major object placement.
+- The lower panel is a full-bleed line drawing with insufficient paper exposure.
+- A large headline, masthead, brand, slogan, `Daily Interior`-style phrase, or any text above the 4% height limit appears.
+- The design becomes “large title + polished architectural line drawing,” even if it otherwise looks premium.
+- The visual language becomes generic retro, generic mid-century advertising, Bauhaus geometry, glossy CGI, photorealistic redraw, watercolor, anime/cartoon, clean flat vector or scrapbook collage.
+- More than one accent hue is used, the accent spreads globally, or the result reads as full color.
+- Hatching becomes uniform wallpaper, contours become sterile CAD lines, or heavy distress dominates.
+- Furniture, decor, architecture or factual metadata is invented.
+- Text or graphics cross the split.
 
-## 8. Color system
+Any hard failure requires regeneration or recompositing before delivery.
 
-Use only:
+## 11. Canonical generation instruction
 
-1. warm ivory / cream paper;
-2. deep brown-black ink;
-3. ONE muted accent/spot color sampled from the user source photo.
-
-Accent color behavior:
-
-- selective, not global;
-- approximately 10–25% of lower-panel printed area in most scenes;
-- should support the hero object, one architectural plane, a plant mass, or another scene-defining feature;
-- never turn the lower panel into full-color illustration.
-
-Typical mappings:
-
-- green-dominant scene → moss / olive;
-- red-dominant feature → brick red / oxblood;
-- caramel timber/leather → tobacco / burnt orange;
-- blue feature → muted slate / navy.
-
-Avoid vivid RGB saturation.
-
----
-
-## 9. Paper and print texture
-
-Paper:
-
-- warm ivory / cream;
-- matte, uncoated;
-- subtle fiber and grain;
-- never bright digital white;
-- never dirty parchment yellow.
-
-Print behavior:
-
-- subtle ink grain;
-- sparse dry-ink gaps;
-- slight uneven density;
-- very mild Risograph / screen-print registration imperfection;
-- tactile but controlled.
-
-Texture strength should remain secondary to composition and linework.
-
-Do not add fake folds, tears, coffee stains, heavy scratches, or dramatic aging.
-
----
-
-## 10. Typography
-
-Typography is archival metadata, not headline design.
-
-Character:
-
-- tiny monospaced / typewriter / technical-catalogue style;
-- quiet;
-- low visual priority;
-- aligned to a simple grid;
-- surrounded by breathing room.
-
-Recommended scale:
-
-- visually small enough to read as annotation, not title;
-- typically around 1/35 to 1/50 of poster height for primary metadata line-height;
-- secondary copy may be smaller.
-
-Recommended content pattern:
-
-`No. 041`
-
-`material / light / furniture / atmosphere`
-
-Optional factual year or place ONLY if actually known.
-
-Optional one short observational sentence.
-
-Never invent city, country, architect, designer, brand, product model, date, or event.
-
-Do not force Korean, Japanese, Chinese, or English. Language should follow user context.
-
----
-
-## 11. Spacing and rhythm
-
-The design should feel composed through restraint.
-
-- Use consistent outer margins.
-- Keep text away from edges.
-- Keep text separated from dense illustration areas.
-- Do not scatter multiple unrelated text blocks.
-- Do not add decorative arrows, circles, stickers, stamps, or fake labels unless the canonical reference visibly requires them.
-- Favor one compact metadata cluster.
-
-The lower panel should feel like a deliberately edited publication page, not a template filled with effects.
-
----
-
-## 12. Hero-object handling
-
-For a sofa, chair, table, shelf, lamp, plant, or other dominant object:
-
-- preserve silhouette;
-- preserve major proportions;
-- preserve legs/base/arm/back geometry;
-- preserve cushion segmentation when relevant;
-- preserve orientation and overlap with nearby objects.
-
-Stylize surface detail through hatching and spot color, not by redesigning the object.
-
----
-
-## 13. Architecture handling
-
-Preserve:
-
-- openings;
-- wall planes;
-- windows;
-- columns;
-- beams;
-- stairs;
-- ceiling and floor direction;
-- major perspective relationships.
-
-Do not invent extra windows, doors, arches, shelves, platforms, or walls.
-
-If the scene is minimalist, reduce hatching rather than adding decorative texture.
-
----
-
-## 14. Forbidden visual drift
-
-The lower panel FAILS if it becomes any of the following:
-
-- photorealistic image-to-image redraw;
-- watercolor;
-- anime or cartoon;
-- glossy 3D render;
-- clean flat vector art;
-- Bauhaus-style geometric poster unrelated to the source;
-- generic mid-century-modern advertising poster;
-- scrapbook collage;
-- full-color illustration;
-- overly distressed vintage paper;
-- fantasy interior;
-- furniture redesign;
-- extra decorative objects;
-- oversized typography;
-- fake branding;
-- invented location/date/designer metadata.
-
----
-
-## 15. Canonical generation intent
-
-Use the uploaded source photo as the sole CONTENT reference and reconstruct the same scene from the same viewpoint as a premium archival interior print. Preserve architecture, furniture identity/count, object positions, silhouettes, foreground/background relationships, and scene identity. Render on warm ivory uncoated paper with deep brown-black hand-drawn architectural ink, linocut/woodcut hatching, controlled cross-hatching, sparse halftone, subtle screen-print/Risograph texture, restrained dry-ink imperfections, and exactly one muted spot color derived from the source. Leave controlled negative space for tiny archival metadata. Keep the image editorial, quiet, tactile, and faithful. No photorealism, no CGI, no watercolor, no clean vector styling, no anime, no redesign, no extra decor, no vivid multicolor palette.
-
----
-
-## 16. Execution fallback rule
-
-At runtime:
-
-- If `reference/layout-reference.jpg` is visually accessible: inspect it first, then use this file to reinforce the analysis.
-- If the JPG exists but cannot be visually decoded: read this entire `REFERENCE.md` and treat it as the authoritative replacement for the inaccessible image.
-- Never claim to have visually inspected the JPG when only its filename or metadata was accessible.
-- Never skip the reference stage and improvise from the repository name.
-
-The required logic is:
-
-**USER PHOTO = WHAT**
-
-**JPG or REFERENCE.md = HOW**
-
-**SKILL.md = PROCESS**
+Reconstruct the uploaded interior photograph from the same viewpoint as a faithful archival interior-study print. Preserve architecture, furniture identity and count, object positions, silhouettes, occlusions and depth order. Render on warm ivory uncoated paper with deep brown-black, slightly irregular hand-drawn contours in three line weights; directional engraved hatching; controlled cross-hatching only in deep values; selective dark ink masses; sparse halftone; restrained dry-ink texture; and exactly one muted source-derived spot color. Keep 20–35% intentional paper exposure, a 6–8% side safety margin, and one tiny metadata cluster. No headline, no masthead, no large title, no photorealism, no CGI, no watercolor, no clean vector art, no generic retro advertising, no redesign, no extra decor and no fabricated facts.
