@@ -1,379 +1,390 @@
 ---
 name: Interior-Archive-Print
-description: Strict two-pass workflow for turning one interior photograph into a 3:4 vertical split poster: exact original photo on top, archival linocut/Risograph reconstruction below.
+description: Strict reference-locked workflow for turning one interior photograph into a 3:4 vertical split poster: exact original photo on top, archival print reconstruction below, visually anchored to reference/layout-reference.jpg.
 ---
 
 # Interior-Archive-Print
 
-## READ THIS FIRST — NON-NEGOTIABLE EXECUTION RULES
+## READ FIRST — THIS IS A REFERENCE-LOCKED SKILL
 
-This is NOT a loose style prompt.
+This is NOT a loose style prompt and must not be executed from the repository name alone.
 
-When this Skill is invoked, the assistant MUST follow this exact workflow in order:
+The repository contains one canonical visual reference:
 
-1. Read this entire SKILL.md before generating anything.
-2. Inspect the uploaded source photo carefully.
-3. NEVER ask the image model to recreate the final full poster in one pass.
-4. Generate ONLY the lower archival illustration from the uploaded source photo.
-5. Preserve the original uploaded photograph as real pixels for the upper half.
-6. Assemble the final 3:4 poster by compositing the original photo on top and the generated illustration on the bottom.
-7. Run the final QC checklist before returning the result.
+`reference/layout-reference.jpg`
 
-If the assistant instead generates one complete image containing both the “photo” and the “illustration”, the result is considered WRONG because the upper photo may be reinterpreted, distorted, recolored, or redesigned.
+That image is the GOLD STANDARD for the visual result. It simultaneously defines layout character, illustration language, print texture, palette restraint, typography scale, spacing, negative space, and overall editorial atmosphere.
 
-The most important principle of this Skill is:
+### Three sources have different authority
 
-**TOP = ORIGINAL PIXELS. BOTTOM = GENERATED INTERPRETATION.**
+**USER SOURCE PHOTO = CONTENT TRUTH**
+Controls architecture, viewpoint, furniture identity/count, object placement, people, plants, lighting relationships, and scene content.
+
+**reference/layout-reference.jpg = VISUAL TRUTH**
+Controls visual treatment, printmaking character, graphic hierarchy, illustration abstraction level, line density, color restraint, paper feeling, typography behavior, spacing, and editorial mood.
+
+**SKILL.md = EXECUTION TRUTH**
+Controls the workflow and prevents improvisation.
+
+Never borrow furniture, architecture, people, plants, objects, or factual metadata from the reference image. Never borrow the source photo's photographic rendering style for the lower panel. Content comes from the user photo; visual grammar comes from the canonical reference.
+
+---
+
+## NON-NEGOTIABLE STARTUP SEQUENCE
+
+When invoked in any chat, especially a new chat, execute in this order BEFORE generating:
+
+1. Retrieve and read the COMPLETE `SKILL.md`.
+2. Retrieve and visually inspect `reference/layout-reference.jpg`.
+3. Analyze the canonical reference as a visual system, not merely by filename.
+4. Inspect the user's uploaded source photo.
+5. Separate CONTENT constraints from STYLE constraints.
+6. Generate ONLY the lower archival interpretation, using BOTH the user photo and canonical reference with their separate roles.
+7. Preserve the user's original photograph pixels for the upper panel.
+8. Composite the two panels into the final strict 3:4 poster.
+9. Run Final QC.
+
+If `reference/layout-reference.jpg` cannot actually be accessed as a visual image, DO NOT pretend it was inspected. Use the written Visual DNA below as fallback and, where possible, retrieve the reference through a method that exposes the image visually.
+
+Do not generate merely because the repository name sounds descriptive.
+Do not summarize this file and then improvise.
+Do not replace the reference with a generic interpretation of “retro”.
+
+---
+
+## REFERENCE LOCK — WHAT TO LEARN FROM THE CANONICAL IMAGE
+
+Before each generation, visually inspect the reference and lock these dimensions:
+
+- exact overall upper/lower hierarchy;
+- relative amount of image versus paper/negative space;
+- illustration scale within the lower panel;
+- line thickness and irregularity;
+- hatching density and direction;
+- shadow abstraction level;
+- ratio of unprinted paper to printed ink;
+- spot-color coverage;
+- paper warmth;
+- ink softness/density;
+- degree of print imperfection;
+- typography size relative to canvas;
+- typography alignment and placement;
+- spacing between illustration and metadata;
+- overall editorial quietness.
+
+Do NOT copy scene-specific content from the reference.
+
+The goal is not pixel duplication. The goal is to transfer its DESIGN GRAMMAR to a new scene.
+
+---
+
+## WRITTEN VISUAL DNA — FALLBACK AND REINFORCEMENT
+
+The canonical reference should be interpreted through the following stable visual DNA:
+
+### Editorial character
+
+A premium found-page feeling from a 1970s–1980s interior design archive, architecture journal, independent furniture catalogue, museum-shop publication, or carefully art-directed design annual.
+
+Quiet, observational, restrained, tactile, intelligent. Not a commercial advertising poster.
+
+### Print language
+
+- hand-drawn architectural ink character;
+- linocut / woodcut / wood engraving influence;
+- screen-print and Risograph behavior;
+- irregular dark brown-black outlines;
+- parallel hatching and cross-hatching;
+- selective solid ink masses;
+- sparse halftone;
+- subtle broken/dry ink;
+- mild registration imperfection;
+- physical print character without excessive grunge.
+
+### Paper
+
+- warm ivory / cream;
+- uncoated stock feeling;
+- visible but restrained fiber/grain;
+- never sterile digital white;
+- never heavily yellowed antique parchment.
+
+### Color
+
+Use a deliberately limited system:
+
+1. warm cream paper;
+2. deep brown-black / softened black structural ink;
+3. ONE principal muted spot color derived from the USER SOURCE PHOTO.
+
+The spot color is selective, not full-scene coloring. Large areas should remain paper or dark linework.
+
+Examples: greenery → olive/moss; red furniture/art → brick/oxblood; caramel leather/timber → tobacco/burnt orange; blue feature → muted slate/navy.
+
+### Illustration abstraction
+
+The lower illustration must sit between technical observation and handmade printmaking. It must remain spatially recognizable but should not chase photographic detail.
+
+Preserve major silhouettes and relationships; translate surfaces and shadows into hatching, ink masses, sparse color, and negative paper.
+
+### Typography
+
+- very small;
+- monospaced/typewriter/technical archive character;
+- quiet, secondary, never headline-dominant;
+- aligned deliberately within a simple grid;
+- generous breathing room;
+- archival number + short keywords + optional known date/location + short observational microcopy.
+
+No fake sophistication through invented facts.
 
 ---
 
 ## OUTPUT CONTRACT
 
-Final output:
+Final result:
 
-- exactly one poster;
+- exactly ONE independent poster;
 - strict vertical 3:4 aspect ratio;
-- upper half ≈ 50%;
-- lower half ≈ 50%;
-- clear horizontal split;
-- no collage, no multi-photo layout, no decorative overlays crossing the split.
+- upper visual zone approximately 50%;
+- lower visual zone approximately 50%;
+- clean straight horizontal division;
+- no collage behavior;
+- no decorative object crossing the split.
 
-### Upper half
+### TOP = ORIGINAL PIXELS
 
-The upper half must be the actual uploaded source image, not an AI redraw.
+The upper panel must use the actual uploaded source photograph.
 
-Allowed:
+Allowed: proportional crop to fit.
 
-- proportional crop to fit the poster;
-- minor global tonal normalization only when necessary.
+Forbidden: AI redraw, regeneration, mirroring, stretching, moving objects, changing architecture, adding/removing people/furniture, replacing materials, changing products, stylistic recoloring.
 
-Forbidden:
+### BOTTOM = REFERENCE-LOCKED INTERPRETATION
 
-- regenerating the room;
-- moving furniture;
-- changing architecture;
-- adding/removing people or objects;
-- mirroring;
-- repainting surfaces;
-- changing product design;
-- replacing lighting;
-- changing colors for style consistency.
+The lower panel depicts the SAME source scene from the SAME viewing direction but translated through the visual grammar of `reference/layout-reference.jpg`.
 
-### Lower half
+---
 
-The lower half must depict the SAME photographed space from the SAME viewpoint.
+## MANDATORY WORKFLOW
 
-It is a stylized reconstruction, not a redesigned interior.
+### PASS A — ANALYZE CANONICAL REFERENCE
 
-Preserve:
+Silently determine its:
 
-- camera direction;
-- framing logic;
+- visual hierarchy;
+- layout rhythm;
+- illustration-to-paper ratio;
+- print density;
+- line language;
+- hatching language;
+- color coverage;
+- typography scale;
+- whitespace behavior;
+- texture strength;
+- overall degree of abstraction.
+
+These become STYLE LOCKS.
+
+### PASS B — ANALYZE USER SOURCE PHOTO
+
+Identify:
+
+- room/scene type;
+- camera angle and eye level;
+- architectural structure;
+- hero furniture/object;
 - major furniture count;
 - furniture silhouettes;
-- architectural openings;
-- object positions;
-- foreground / middle / background relationships;
-- important occlusions;
-- dominant lighting direction;
-- recognizable hero objects.
-
----
-
-## MANDATORY TWO-PASS WORKFLOW
-
-### PASS A — ANALYZE AND LOCK
-
-Before generating the lower illustration, identify:
-
-- room type;
-- camera angle and approximate eye level;
-- dominant architectural lines;
-- hero furniture / hero object;
-- all major furniture pieces;
-- plants;
 - lamps;
+- plants;
 - artwork;
-- shelves / audio equipment / objects when present;
-- foreground, middle ground, background;
-- major overlaps;
-- dominant source colors;
-- ONE accent color to retain in the print;
-- any factual metadata supplied by the user.
+- shelving/audio/objects where relevant;
+- foreground/middle/background;
+- major overlaps and occlusions;
+- lighting direction;
+- one scene-representative accent color;
+- only factual metadata actually supplied or reliably known.
 
-Do not invent missing factual metadata.
+These become CONTENT LOCKS.
 
-### PASS B — GENERATE LOWER PANEL ONLY
+### PASS C — GENERATE LOWER PANEL ONLY
 
-Use the uploaded photo as the visual reference.
+Use the user photo for CONTENT LOCKS and `reference/layout-reference.jpg` for STYLE LOCKS.
 
-Generate a lower-panel artwork with the following visual language:
+The lower image must preserve:
 
-**1970s–1980s interior design archive / architecture journal / independent furniture catalogue / linocut + wood engraving + screen print + Risograph.**
+- source architecture;
+- source viewpoint;
+- source furniture identity/count;
+- source object positions;
+- source foreground/background relationships;
+- source major silhouettes;
+- source scene identity.
 
-Base look:
+But its rendering must follow the canonical reference's visual grammar.
 
-- warm ivory / cream uncoated paper;
-- deep brown-black ink linework;
-- one muted spot color sampled from the original image;
-- hand-drawn architectural line quality;
-- linocut and woodcut hatching;
-- cross-hatching in shadows;
-- sparse halftone;
-- slight ink loss;
-- subtle registration imperfection;
-- tactile paper grain;
-- restrained hand-pulled print texture;
-- premium editorial design, not distressed grunge.
+Do not ask the image model to generate the entire top+bottom poster in one pass.
 
-The illustration must remain structurally close to the source image.
+### PASS D — COMPOSITE
 
-### PASS C — COMPOSITE
+Create the strict vertical 3:4 canvas programmatically when an image compositor is available.
 
-After the lower image is generated:
+- Place ORIGINAL uploaded photograph in upper ~50%.
+- Crop proportionally; never stretch.
+- Place generated lower artwork in lower ~50%.
+- Use a straight clean boundary.
+- Keep typography inside the lower panel.
+- Do not allow lower artwork to overlap the source photograph.
 
-- create a 3:4 vertical canvas;
-- place the ORIGINAL uploaded photo in the upper 50%;
-- crop proportionally, never stretch;
-- place the generated archival illustration in the lower 50%;
-- preserve a clean straight horizontal boundary;
-- do not let any lower-panel element overlap the upper photo;
-- keep the typography entirely inside the lower panel.
-
-If a programmatic image compositor is available, use it. This is preferred over asking the image model to generate the whole poster.
-
----
-
-## LOWER-PANEL STYLE LOCK
-
-The visual target is not merely “retro”. It should look like a page from a carefully art-directed design archive.
-
-### Linework
-
-Use:
-
-- rough black/brown ink outlines;
-- varied line weight;
-- woodcut-style parallel hatching;
-- cross-hatching for depth;
-- broken print edges;
-- slightly imperfect hand-made marks.
-
-Avoid:
-
-- clean vector outlines;
-- smooth CGI contours;
-- airbrushed digital shading;
-- watercolor washes;
-- anime/cartoon rendering.
-
-### Color
-
-Use a limited palette:
-
-1. warm cream paper;
-2. deep brown-black ink;
-3. ONE main accent color from the source photo.
-
-Examples:
-
-- dominant greenery → olive / moss green;
-- red shelving/art → brick red / oxblood;
-- caramel leather/timber → tobacco / burnt orange;
-- strong blue object → muted slate / navy blue.
-
-Do not recreate the full photographic palette in the illustration.
-
-### Paper and print texture
-
-Use restrained physical-print character:
-
-- uncoated cream paper;
-- subtle grain;
-- tiny print noise;
-- sparse uneven ink density;
-- mild Risograph misregistration;
-- occasional dry-ink gaps.
-
-Do not make the page look dirty, damaged, or artificially ancient.
+This compositing stage is mandatory because text instructions such as “preserve the photo” do not guarantee that an image generator will retain original pixels.
 
 ---
 
 ## FIDELITY PRIORITY
 
-When style conflicts with fidelity, fidelity wins.
+If style and content conflict, source-scene fidelity wins for WHAT is depicted; reference fidelity wins for HOW it is depicted.
 
-Priority order:
-
+Content priority:
 1. architecture;
 2. viewpoint;
 3. furniture count;
 4. furniture identity;
 5. object placement;
-6. foreground/background order;
-7. style;
-8. texture.
+6. foreground/background order.
 
-Never improve the room by redesigning it.
+Style priority:
+1. canonical layout hierarchy;
+2. line/hatching character;
+3. abstraction level;
+4. paper/ink relationship;
+5. limited color behavior;
+6. print texture;
+7. typography scale and spacing.
 
-Do not:
-
-- substitute a different sofa/chair/table;
-- add decorative plants;
-- remove clutter simply because it is inconvenient;
-- create a more luxurious version of the space;
-- change window or doorway dimensions;
-- simplify the room until its identity is lost.
-
-Small clutter may be grouped graphically, but major anchor objects must remain recognizable.
+Never redesign the user's room to resemble the reference room.
 
 ---
 
 ## TYPOGRAPHY SYSTEM
 
-Typography must stay quiet and archival.
+Use small archival metadata only.
 
-Preferred character:
-
-- monospaced;
-- typewriter;
-- old catalogue index;
-- technical archive label.
-
-Recommended small text block:
+Typical structure:
 
 `No. 041`
 
 `retro corner / warm light / objects and posters`
 
-`20XX`
+`20XX` only if an actual year is known or a clearly neutral placeholder is appropriate.
 
-`旧物与光，一角的温度刚刚好。`
+One short observational sentence may follow.
 
-The actual wording MUST adapt to the source image.
+Language is adaptive. Do not force Korean, Japanese, Chinese, or English. Do not infer a location from aesthetic cues.
 
-Rules:
-
-- small type only;
-- lower-left or another quiet lower-panel area;
-- generous negative space around text;
-- no oversized headline unless user requests it;
-- no fake branding;
-- no invented architect/designer/location/date.
-
-### Language
-
-Do NOT force Korean, Japanese, Chinese, or English.
-
-Language is contextual.
-
-If the location is unknown, use neutral descriptive copy instead of inventing a place.
-
----
-
-## CANONICAL LOWER-PANEL GENERATION INSTRUCTION
-
-When generating the lower panel, the assistant should internally use an instruction equivalent to:
-
-“Using the uploaded interior photograph as the sole visual reference, reconstruct the exact same room from the same camera viewpoint as a premium 1970s–1980s interior-design archival print. Preserve the major architecture, furniture identity, furniture count, object positions, foreground/background relationships, and recognizable silhouettes. Render on warm ivory uncoated paper with deep brown-black linocut/woodcut ink lines, hand-drawn architectural hatching, cross-hatching, sparse halftone, subtle screen-print/Risograph texture, and only one muted accent color sampled from the original scene. Keep the composition faithful rather than redesigning the room. Leave controlled negative space for small typewriter-style archival metadata. No photorealism, no 3D rendering, no watercolor, no clean vector style, no anime, no furniture redesign, no extra decor, no invented architecture, no vivid multicolor palette.”
-
-This is the visual anchor. Do not dilute it with unrelated style adjectives.
-
----
-
-## ADAPTIVE RULES
-
-### Plant-heavy rooms
-
-Preserve the silhouette and approximate placement of the major plants. Simplify leaves into grouped engraved shapes. Accent color may be muted olive/moss green.
-
-### Furniture-focused rooms
-
-Preserve upholstery geometry, legs/base, cushion segmentation, arm shape, and relationship to surrounding pieces.
-
-### Object-heavy / retro rooms
-
-Preserve key recognizable objects such as record players, speakers, lamps, clocks, radios, globes, books, framed art, and distinctive shelving. Simplify only tiny secondary clutter.
-
-### Minimalist architecture
-
-Emphasize structural lines, openings, ceiling/floor geometry, furniture proportion, and negative space. Do not add texture everywhere.
+Never invent city, country, architect, designer, product name, date, or event.
 
 ---
 
 ## NEGATIVE CONSTRAINTS
 
-The lower panel must NOT become:
+Do NOT allow the lower panel to drift into:
 
-- generic retro poster;
-- flat vector art;
-- watercolor illustration;
-- cartoon;
-- anime;
-- realistic 3D render;
-- glossy CGI;
+- generic “retro poster” styling;
+- flat clean vector art;
+- watercolor;
+- anime/cartoon;
+- glossy 3D/CGI;
+- photorealistic redraw;
 - luxury interior redesign;
+- Bauhaus geometry unrelated to the reference;
 - scrapbook collage;
-- Bauhaus geometric poster unless specifically requested;
-- random graphic shapes;
-- decorative sticker layout;
-- over-distressed vintage paper;
-- full-color photo tracing;
-- arbitrary fantasy architecture.
+- random stickers/stamps/arrows;
+- vivid multicolor illustration;
+- excessive distressed/grunge paper;
+- fantasy architecture;
+- added decorative objects;
+- oversized advertising headlines.
+
+Do NOT copy scene content from the canonical reference.
 
 ---
 
-## FINAL QC — MUST CHECK BEFORE OUTPUT
+## SCENE ADAPTATION
 
-A result fails this Skill if any critical item below is wrong.
+### Furniture-led
+Preserve upholstery geometry, arm shape, legs/base, cushion segmentation, and relation to adjacent objects. Allow the scene-derived spot color to emphasize the hero furniture when appropriate.
 
-### Format
+### Architecture-led
+Prioritize openings, walls, columns, windows, stairs, ceiling rhythm, floor geometry, and perspective relationships.
 
-- [ ] final image is vertical 3:4;
-- [ ] top and bottom are approximately 1:1;
-- [ ] split is straight and clean.
+### Plant-heavy
+Preserve major plant silhouettes and placement. Simplify leaves into grouped engraved masses. Olive/moss may become the spot color when visually justified.
 
-### Upper panel
+### Object-rich / retro
+Preserve recognizable anchor objects such as speakers, record players, clocks, lamps, books, framed art, radios, globes, and shelving. Tiny secondary clutter may be graphically grouped.
 
-- [ ] upper image uses the original uploaded photograph pixels;
-- [ ] no AI-redrawn upper room;
-- [ ] no mirror/stretch/distortion;
-- [ ] no added/removed furniture or people.
+### Minimal
+Do not fill empty areas with unnecessary hatching. Match the canonical reference's restraint and allow paper to breathe.
 
-### Lower panel
+---
 
-- [ ] clearly depicts the same room;
+## FINAL QC — REFERENCE COMPARISON IS MANDATORY
+
+Before output, compare the result against BOTH inputs.
+
+### Against user source photo
+
+- [ ] same scene identity;
 - [ ] same viewing direction;
-- [ ] major furniture positions correspond to source;
-- [ ] architecture remains recognizable;
-- [ ] no arbitrary redesign;
-- [ ] palette is cream + dark ink + one principal accent;
-- [ ] texture feels like linocut/woodcut/screenprint/Risograph;
-- [ ] negative space remains controlled.
+- [ ] architecture corresponds;
+- [ ] major furniture count corresponds;
+- [ ] hero furniture remains recognizable;
+- [ ] major object positions correspond;
+- [ ] nothing important was invented, removed, mirrored, or redesigned.
 
-### Text
+### Against canonical reference
 
-- [ ] small archival/typewriter typography;
-- [ ] wording relates to the scene;
-- [ ] no fabricated location/date/designer information.
+- [ ] lower panel feels like the same design family;
+- [ ] line density is comparable;
+- [ ] hatching language is comparable;
+- [ ] abstraction level is comparable;
+- [ ] paper warmth is comparable;
+- [ ] dark ink behavior is comparable;
+- [ ] spot-color restraint is comparable;
+- [ ] print texture strength is comparable;
+- [ ] typography is similarly small and quiet;
+- [ ] negative-space behavior is comparable;
+- [ ] overall result feels editorial rather than template-like.
 
-If the top panel was regenerated by AI instead of using the original image, STOP and rebuild the poster with the original photo before returning it.
+### Final format
+
+- [ ] strict vertical 3:4;
+- [ ] upper/lower approximately 1:1;
+- [ ] upper panel contains original photo pixels;
+- [ ] straight split;
+- [ ] no cross-boundary graphics;
+- [ ] no fabricated metadata.
+
+If the lower panel matches the words in SKILL.md but visibly does NOT belong to the same design family as `reference/layout-reference.jpg`, it FAILS and should be regenerated.
+
+If the upper panel was regenerated instead of using original pixels, it FAILS and must be rebuilt by compositing the original photo.
 
 ---
 
-## INVOCATION BEHAVIOR IN A NEW CHAT
+## NEW-CHAT INVOCATION RULE
 
-When the user says something like:
+When the user says, for example:
 
-“安装 GitHub 上 karylee996 的 Interior-Archive-Print，并按这个 Skill 生成这张照片。”
+“读取并严格执行 GitHub 上 karylee996/Interior-Archive-Print 的完整 SKILL.md，按这个 Skill 生成我上传的照片。”
 
-The assistant should NOT immediately generate.
+The assistant must first retrieve:
 
-It should first retrieve and read the full `SKILL.md`, then silently apply the mandatory workflow above.
+1. `SKILL.md`
+2. `reference/layout-reference.jpg`
 
-Do not rely on the repository name alone.
-Do not summarize the Skill and then improvise.
-Do not use a generic “retro interior poster” prompt.
-Do not skip the compositing stage.
+Only then may it generate.
 
-The reproducibility of this Skill depends on following the execution workflow, not merely matching the aesthetic keywords.
+The assistant must treat the reference image as a REQUIRED VISUAL INPUT, not an optional example or a filename mentioned in prose.
+
+**Source photo determines WHAT. Canonical reference determines HOW. SKILL.md determines PROCESS.**
