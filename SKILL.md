@@ -1,287 +1,91 @@
 ---
-name: Interior-Archive-Print
-description: Strict reference-locked workflow for turning one interior photograph into a 3:4 vertical split poster: exact original photo on top, archival print reconstruction below.
+name: interior-archive-print
+description: Convert one interior photograph into a strict 3:4 split archival print poster with the untouched source photo above and a reference-locked illustrated reconstruction below. Use for Interior-Archive-Print requests; not for loose retro-poster styling.
 ---
 
-# Interior-Archive-Print
+# Interior Archive Print
 
-## READ FIRST — REQUIRED FILES
+This is a deterministic production workflow, not a loose style prompt.
 
-This is NOT a loose style prompt. Before generating anything, retrieve and read:
+## Required reading and authority
 
-1. the COMPLETE `SKILL.md`;
-2. the COMPLETE `REFERENCE.md`;
-3. `reference/layout-reference.jpg` if the runtime can actually expose it as a visual image.
+Before acting, read this file and the complete `REFERENCE.md`.
 
-IMPORTANT: GitHub access may expose the JPG only as binary metadata and not as viewable pixels. If the JPG cannot actually be visually inspected, DO NOT pretend to have seen it. In that case, `REFERENCE.md` is the authoritative textual replacement.
+`REFERENCE.md` is the canonical, machine-readable visual specification in every runtime. It is never a fallback or a reduced-quality mode. If `reference/layout-reference.jpg` can truly be decoded and visually inspected, use it only to validate the interpretation of `REFERENCE.md`. If only its path, metadata, blob SHA, binary marker, or empty payload is available, record it internally as not visually inspected and continue without guessing. The JPG must never override hard constraints in `REFERENCE.md`.
 
-Never execute this Skill from the repository name alone.
+- User photo = content truth: scene, architecture, viewpoint, furniture, objects, people, plants, lighting relationships.
+- `REFERENCE.md` = visual truth: geometry, hierarchy, drawing language, ink, paper, color, typography, spacing.
+- This file = process truth: analysis, generation, compositing, and rejection.
 
-## AUTHORITY MODEL
+Never copy scene content or metadata from the reference image.
 
-**USER SOURCE PHOTO = CONTENT TRUTH / WHAT**
-Architecture, viewpoint, furniture identity/count, objects, people, plants, spatial relationships, lighting relationships, scene content.
+## Output contract
 
-**layout-reference.jpg OR REFERENCE.md = VISUAL TRUTH / HOW**
-Layout character, illustration language, printmaking character, line density, hatching, abstraction, paper, ink, spot-color behavior, typography scale, spacing, negative space, editorial atmosphere.
+- Exactly one strict vertical 3:4 poster.
+- Two equal-height zones separated by one perfectly straight horizontal boundary.
+- Top: original uploaded photograph pixels. Proportional crop only.
+- Bottom: generated reconstruction of the same scene and viewpoint, following `REFERENCE.md`.
+- No overlap, feathering, torn edge, gradient, or element crossing the split.
 
-**SKILL.md = EXECUTION TRUTH / PROCESS**
-Workflow, separation of generation and compositing, fidelity rules, and QC.
+The invariant is: **TOP = ORIGINAL PIXELS; BOTTOM = GENERATED INTERPRETATION.**
 
-Never copy furniture, architecture, objects, people, plants, or factual metadata from the canonical reference. The source photo determines content; the reference system determines rendering.
+Never ask an image model to generate the complete poster. Generate only the lower artwork, then composite programmatically whenever a compositor is available. If exact pixel compositing is unavailable, do not claim strict completion; explain the limitation.
 
----
+## Execution
 
-## NON-NEGOTIABLE STARTUP SEQUENCE
+### 1. Lock the visual system
 
-1. Read complete `SKILL.md`.
-2. Read complete `REFERENCE.md`.
-3. Attempt to visually inspect `reference/layout-reference.jpg`.
-4. If visual access succeeds, use JPG + REFERENCE.md together.
-5. If visual access fails, explicitly fall back to REFERENCE.md internally; do not guess the JPG appearance.
-6. Inspect the user's uploaded source photo.
-7. Lock CONTENT constraints from the source.
-8. Lock STYLE constraints from JPG/REFERENCE.md.
-9. Generate ONLY the lower archival illustration.
-10. Preserve the user's original photo pixels for the upper panel.
-11. Composite the final poster.
-12. Run QC against source fidelity and reference specification.
+Read all of `REFERENCE.md` and convert every numeric range, hierarchy rule, color restriction, typography limit, and failure test into hard generation and QC constraints. Do not compress it into generic words such as retro, vintage, editorial, Riso, or mid-century.
 
-Do NOT ask the image model to generate the complete top+bottom poster in one pass.
+If the JPG is visually accessible, compare it against the specification for validation only. Never infer unseen details from its filename.
 
-The central rule is:
+### 2. Lock the source
 
-**TOP = ORIGINAL PIXELS. BOTTOM = GENERATED INTERPRETATION.**
+Inspect the uploaded photo and record:
 
----
+- cropable region and camera direction/eye level;
+- walls, openings, ceiling/floor direction, columns, beams, windows and perspective;
+- hero furniture and major furniture count, silhouettes, segmentation and orientation;
+- lamps, plants, artwork, shelving, audio objects and other scene anchors;
+- foreground/middle/background, overlaps and occlusions;
+- dominant light direction and one suitable muted accent color;
+- only factual metadata explicitly supplied or visibly certain.
 
-## OUTPUT CONTRACT
+Never invent a city, building, designer, architect, brand, product model, date, or event.
 
-- exactly one poster;
-- strict vertical 3:4;
-- upper/lower approximately 1:1;
-- clean straight horizontal split;
-- no collage overlaps or graphics crossing the split.
+### 3. Generate the lower panel only
 
-### Upper panel
+Use the source lock for WHAT and `REFERENCE.md` for HOW. Preserve architecture, viewpoint, major object count and identity, positions, occlusions, and scene order. Small clutter may be grouped, but must not become new decor.
 
-Must be the actual uploaded source image.
+The prompt must include the measurable constraints and explicit failure patterns from `REFERENCE.md`, not merely its aesthetic summary.
 
-Allowed: proportional crop only.
+### 4. Composite
 
-Forbidden: AI redraw, regeneration, mirroring, stretching, moving objects, changing architecture, adding/removing people/furniture, replacing products/materials, stylistic recoloring.
+Create a 3:4 canvas. Crop the original source proportionally into the top half without regeneration, mirroring, stretching, object changes, or stylistic recoloring. Place the generated lower artwork in the bottom half. Keep all metadata in the lower zone and preserve the clean split.
 
-### Lower panel
+### 5. Reject or deliver
 
-Must depict the SAME scene from the SAME viewing direction and preserve source identity, but render according to `REFERENCE.md` and, when visually accessible, `reference/layout-reference.jpg`.
+Reject and rebuild if any hard failure in `REFERENCE.md` occurs. In particular, reject:
 
----
+- any AI-generated or altered top panel;
+- a cover-style headline, brand title, or `Daily Interior`-type display text;
+- a generic magazine cover made from a large title plus polished architectural line art;
+- a bottom panel that is edge-to-edge with no intentional paper;
+- changed furniture count, viewpoint, architecture, or hero-object geometry;
+- multicolor, photorealistic, CGI, watercolor, anime, clean-vector, or generic mid-century treatment;
+- fabricated metadata.
 
-## MANDATORY WORKFLOW
+## Final QC
 
-### PASS A — REFERENCE LOCK
+Confirm all of the following before delivery:
 
-Read `REFERENCE.md` completely. If JPG visual access exists, inspect it too.
+- strict 3:4 and equal top/bottom geometry;
+- top panel is traceably the original uploaded pixels;
+- lower panel depicts the same scene, viewing direction, architecture, major furniture and anchors;
+- lower artwork satisfies every relevant percentage and range in `REFERENCE.md`;
+- warm paper, brown-black ink, exactly one muted spot color, controlled hatching and restrained print texture;
+- metadata is tiny, compact and subordinate; no headline exists;
+- intentional negative space remains;
+- no invented facts or cross-boundary elements.
 
-Lock:
-
-- layout rhythm;
-- illustration-to-paper ratio;
-- line weight and irregularity;
-- hatching density/direction;
-- abstraction level;
-- dark-ink mass behavior;
-- paper warmth;
-- one-spot-color restraint;
-- print texture strength;
-- typography scale/placement;
-- negative-space behavior;
-- overall editorial quietness.
-
-These are STYLE LOCKS.
-
-### PASS B — SOURCE LOCK
-
-Analyze the user source photo and lock:
-
-- scene type;
-- camera direction and eye level;
-- architecture;
-- hero furniture/object;
-- major furniture count and silhouettes;
-- lamps, plants, artwork, shelving/audio/objects where present;
-- foreground/middle/background;
-- overlaps and occlusions;
-- dominant lighting direction;
-- one suitable muted accent color;
-- factual metadata supplied by the user.
-
-These are CONTENT LOCKS.
-
-Never invent missing metadata.
-
-### PASS C — GENERATE LOWER PANEL ONLY
-
-Use CONTENT LOCKS for WHAT appears and STYLE LOCKS for HOW it is rendered.
-
-Preserve architecture, viewpoint, furniture count/identity, object positions, foreground/background order, major silhouettes, and scene identity.
-
-Use the detailed visual specification in `REFERENCE.md`; do not reduce it to generic adjectives such as “retro”, “vintage”, or “Riso poster”.
-
-### PASS D — COMPOSITE
-
-Prefer a programmatic image compositor when available.
-
-- create strict 3:4 vertical canvas;
-- place ORIGINAL source photograph in upper ~50%;
-- crop proportionally, never stretch;
-- place generated archival artwork in lower ~50%;
-- straight clean divider;
-- typography stays in lower panel;
-- no cross-boundary graphics.
-
-Compositing is mandatory because an image generator cannot be trusted to preserve exact source pixels when asked to create the whole poster.
-
----
-
-## FIDELITY PRIORITY
-
-For WHAT is depicted, source fidelity wins:
-
-1. architecture;
-2. viewpoint;
-3. furniture count;
-4. furniture identity;
-5. object placement;
-6. foreground/background order.
-
-For HOW it is depicted, `REFERENCE.md` / visually accessible JPG wins:
-
-1. layout hierarchy;
-2. line/hatching language;
-3. abstraction level;
-4. paper/ink relationship;
-5. limited color behavior;
-6. print texture;
-7. typography scale and spacing.
-
-Never redesign the source room to resemble the reference room.
-
----
-
-## REFERENCE SPECIFICATION IS MANDATORY
-
-`REFERENCE.md` contains the detailed reproducible specification for:
-
-- overall design character;
-- poster geometry;
-- lower-panel composition;
-- scene fidelity;
-- illustration abstraction;
-- line language;
-- value structure;
-- color percentages/behavior;
-- paper/print texture;
-- typography;
-- spacing/rhythm;
-- hero-object handling;
-- architecture handling;
-- forbidden visual drift;
-- canonical generation intent.
-
-Do not skip it. Do not replace it with a short summary.
-
----
-
-## TYPOGRAPHY
-
-Typography is tiny archival metadata, never the main headline.
-
-Use monospaced/typewriter/technical catalogue character, restrained scale, simple alignment, and generous breathing room.
-
-Possible structure:
-
-`No. 041`
-
-`material / light / furniture / atmosphere`
-
-Optional factual date/location only when known.
-
-One short observational sentence may be used.
-
-Language is contextual. Never invent city, country, architect, designer, brand, product model, date, or event.
-
----
-
-## NEGATIVE CONSTRAINTS
-
-Do not drift into:
-
-- generic retro poster;
-- clean flat vector;
-- watercolor;
-- anime/cartoon;
-- glossy CGI/3D;
-- photorealistic redraw;
-- luxury redesign;
-- unrelated Bauhaus geometry;
-- scrapbook collage;
-- stickers/arrows/random graphic devices;
-- vivid full-color illustration;
-- heavy grunge/aged paper;
-- fantasy architecture;
-- added decor;
-- oversized advertising typography.
-
----
-
-## FINAL QC
-
-### Against source photo
-
-- [ ] same scene identity;
-- [ ] same viewing direction;
-- [ ] architecture corresponds;
-- [ ] major furniture count corresponds;
-- [ ] hero furniture recognizable;
-- [ ] major object positions correspond;
-- [ ] no important invention/removal/mirroring/redesign.
-
-### Against REFERENCE.md / accessible JPG
-
-- [ ] lower panel belongs to the required design family;
-- [ ] line density matches specification;
-- [ ] hatching language matches;
-- [ ] abstraction level matches;
-- [ ] paper warmth matches;
-- [ ] dark ink behavior matches;
-- [ ] exactly one muted spot color is used selectively;
-- [ ] print texture is restrained;
-- [ ] typography is tiny and quiet;
-- [ ] negative space remains intentional;
-- [ ] result feels editorial, not template-like.
-
-### Format
-
-- [ ] strict vertical 3:4;
-- [ ] upper/lower approximately 1:1;
-- [ ] upper contains original source pixels;
-- [ ] straight split;
-- [ ] no cross-boundary elements;
-- [ ] no fabricated metadata.
-
-If the upper panel was AI-generated, the result FAILS and must be rebuilt with original pixels.
-
-If the lower panel technically follows generic style words but does not satisfy the detailed `REFERENCE.md`, the result FAILS and should be regenerated.
-
----
-
-## NEW-CHAT INVOCATION
-
-When invoked from a new chat, the assistant MUST retrieve `SKILL.md` and `REFERENCE.md` before generation. It should also attempt `reference/layout-reference.jpg`, but inability to decode the JPG must NOT block correct execution: `REFERENCE.md` exists specifically as the reliable visual-spec fallback.
-
-Recommended user invocation:
-
-“读取并严格执行 GitHub 上 karylee996/Interior-Archive-Print 的完整 SKILL.md 和 REFERENCE.md；如果 reference/layout-reference.jpg 可以被视觉读取，也必须作为参考。不要根据仓库名称自行猜测风格。按 Skill 处理我上传的照片。”
-
-**USER PHOTO = WHAT. REFERENCE = HOW. SKILL = PROCESS.**
+If any item fails, iterate before presenting the result.
